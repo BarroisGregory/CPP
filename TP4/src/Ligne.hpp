@@ -2,7 +2,7 @@
 #define LIGNE_HPP_
 
 #include "Point.hpp"
-#include "FigureGeometrique"
+#include "FigureGeometrique.hpp"
 #include "Couleur.hpp"
 
 class Ligne : public FigureGeometrique{

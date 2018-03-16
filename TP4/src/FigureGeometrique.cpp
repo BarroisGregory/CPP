@@ -1,5 +1,5 @@
 #include <iostream>
-#include "FigureGeometrique"
+#include "FigureGeometrique.hpp"
 
 FigureGeometrique::FigureGeometrique(const Couleur& couleur) :
   _couleur(couleur) {}
