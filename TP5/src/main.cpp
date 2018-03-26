@@ -5,8 +5,9 @@
 #include "Ligne.hpp"
 #include "Couleur.hpp"
 #include "Point.hpp"
+#include "ViewerFigures.hpp"
 
-int main(){
+int main(int argc, char ** argv){
 
 
   Couleur c{255, 255, 255};
@@ -19,5 +20,8 @@ int main(){
   PolygoneRegulier popol(c, p1, 3, 5);
 
   popol.afficher();
+
+  ViewerFigures w(argc, argv);
+  w.run();
 
 }

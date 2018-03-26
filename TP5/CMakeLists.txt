@@ -12,4 +12,8 @@ add_executable( main_doubler21.out src/main_doubler21.cpp
 target_link_libraries( main_doubler21.out ${PKG_LIBRARIES} )
 
 add_executable( main src/PolygoneRegulier.cpp
-    src/Ligne.cpp src/FigureGeometrique.cpp src/main.cpp)
+    src/Ligne.cpp src/FigureGeometrique.cpp src/ViewerFigures src/main.cpp)
+    target_link_libraries( main ${PKG_LIBRARIES} )
+
+add_executable( test_fenetre src/test_fenetre.cpp)
+target_link_libraries( test_fenetre ${PKG_LIBRARIES} )
