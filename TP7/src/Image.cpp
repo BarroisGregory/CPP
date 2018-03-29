@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cmath>
+#include <fstream>
 #include "Image.hpp"
 
 Image::Image(int largeur, int hauteur) : _largeur(largeur), _hauteur(hauteur) {}
@@ -25,9 +27,35 @@ int Image::getPixel(const int& i, const int& j) const {
 }
 
 void Image::setPixel(const int& i, const int& j, const int& couleur){
-  _pixels[_lageur*i+j] = couleur;
+  _pixels[_largeur*i+j] = couleur;
 }
 
 Image::~Image(){
   delete[] _pixels;
+}
+
+void remplir(Image& image){
+  for(int i = 0; i < image.getHauteur(); i++){
+    for(int j = 0; j < image.getLargeur(); j++){
+          double cosVal = ((std::cos((float)j / 10) + 1)/2)*255;
+          image.setPixel(i,j,std::floor(cosVal));
+    }
+  }
+}
+
+void ecrirePnm(const Image& img, const std::string& nomFichier){
+  std::ofstream fichier(nomFichier, std::ofstream::out);
+  if(fichier){
+    fichier << "P2" << std::endl << img.getLargeur() << " " << img.getHauteur()
+    << std::endl << "255" << std::endl;
+    for(int i = 0; i < img.getHauteur(); i++){
+      for(int j = 0; j < img.getLargeur(); j++){
+        fichier << img.getPixel(i,j) << " ";
+      }
+      fichier << std::endl;
+    }
+  }
+  else{
+    throw std::string("Erreur: ouverture fichier");
+  }
 }

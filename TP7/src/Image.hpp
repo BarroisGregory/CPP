@@ -1,6 +1,8 @@
 #ifndef IMAGE_HPP_
 #define IMAGE_HPP_
 
+#include <string>
+
 class Image{
 private:
   int _largeur, _hauteur;
@@ -15,6 +17,8 @@ public:
   int getPixel(const int& i, const int& j) const;
   void setPixel(const int& i, const int& j, const int& couleur);
   ~Image();
+  void remplir(Image& image);
+  void ecrirePnm(const Image& img, const std::string& nomFichier);
 };
 
 #endif
