@@ -7,10 +7,9 @@ find_package( PkgConfig REQUIRED )
 pkg_check_modules( PKG REQUIRED gtkmm-2.4 cpputest )
 include_directories( ${PKG_INCLUDE_DIRS} )
 
-add_executable( main_doubler21.out src/main_doubler21.cpp 
+add_executable( main_doubler21.out src/main_doubler21.cpp
     src/Doubler.cpp )
 target_link_libraries( main_doubler21.out ${PKG_LIBRARIES} )
 
-add_executable( main_test.out src/Image.cpp )
-target_link_libraries( main_test.out ${PKG_LIBRARIES} )
-
+add_executable( main_img.out src/Image.cpp src/main.cpp )
+target_link_libraries( main_img.out ${PKG_LIBRARIES} )
