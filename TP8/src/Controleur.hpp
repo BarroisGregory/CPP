@@ -19,6 +19,9 @@ class Controleur {
 
         // Lance l'application.
         void run();
+        std::string getTexte();
+        void actualiser();
+        void chargerInventaire();
 };
 
 #endif

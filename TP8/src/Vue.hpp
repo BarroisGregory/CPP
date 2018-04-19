@@ -35,7 +35,7 @@ class VueGraphique : public Vue {
 
     public:
         // Constructeur à utiliser pour construire l'interface graphique.
-        VueGraphique(int argc, char ** argv, Controleur & controleur);
+        VueGraphique(int argc, char ** argv, Controleur& controleur);
 
         // Actualise l'interface graphique. Cette methode appelle le controleur
         // pour obtenir le texte décrivant les bouteilles puis affiche ce texte.
@@ -44,9 +44,22 @@ class VueGraphique : public Vue {
         // Lance l'interface graphique. Cette methode est bloquante
         // (la methode termine quand la fenetre est fermée par l'utilisateur).
         void run();
-
     private:
         void ouvrirFichier();
+};
+
+class VueConsole : public Vue {
+    public:
+        // Constructeur à utiliser pour construire l'interface graphique.
+        VueConsole(Controleur& controleur);
+
+        // Actualise l'interface graphique. Cette methode appelle le controleur
+        // pour obtenir le texte décrivant les bouteilles puis affiche ce texte.
+        void actualiser();
+
+        // Lance l'interface graphique. Cette methode est bloquante
+        // (la methode termine quand la fenetre est fermée par l'utilisateur).
+        void run();
 };
 
 #endif

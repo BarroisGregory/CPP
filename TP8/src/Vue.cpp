@@ -34,7 +34,7 @@ Vue(controleur), _kit(argc, argv) {
 }
 
 void VueGraphique::actualiser() {
-	std::string texte = "bloublou";    // TODO recuperer le vrai texte a afficher
+	std::string texte = _controleur.getTexte();
 	_textView.get_buffer()->set_text(texte.c_str());
 }
 
@@ -53,3 +53,14 @@ void VueGraphique::ouvrirFichier() {
 	}
 }
 
+VueConsole::VueConsole(Controleur & controleur):
+	Vue(controleur)
+{
+	actualiser();
+}
+
+void VueConsole::run(){}
+
+void VueConsole::actualiser(){
+	std::cout << _controleur.getTexte() << std::endl;
+}
